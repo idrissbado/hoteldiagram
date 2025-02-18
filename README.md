@@ -108,7 +108,7 @@ Hotel - Room (1:N ):
 
 Room table has a foreign key Hotel_id referencing the Hotel table.
 
-### Visual Representation of the Relational Diagram
+
 
 ## Visual Representation of the Relational Diagram
 
