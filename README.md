@@ -152,7 +152,7 @@ erDiagram
         decimal Price
         int Beds_numbers
     }
-
+```
 ### Explanation of Relationships
 Hotel - Type (1:1):
 
