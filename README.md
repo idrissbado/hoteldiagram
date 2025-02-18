@@ -110,23 +110,48 @@ Room table has a foreign key Hotel_id referencing the Hotel table.
 
 ### Visual Representation of the Relational Diagram
 
-+----------------+          +----------------+          +----------------+
-|    Hotel       |          |    Type        |          |    Employee    |
-+----------------+          +----------------+          +----------------+
-| Hotel_id (PK)  |<-------->| Type_id (PK)   |          | Employee_id (PK)|
-| Hotel_name     |          | Type_Name      |<-------->| Employee_Name   |
-| Type_id (FK)   |          +----------------+          | Employee_Specialty|
-+----------------+                                     | Hotel_id (FK)   |
-                                                       +----------------+
+## Visual Representation of the Relational Diagram
 
-+----------------+          +----------------+
-|    Room        |          |    Category    |
-+----------------+          +----------------+
-| Room_id (PK)   |<-------->| Category_id (PK)|
-| Floor          |          | Category_Name  |
-| Hotel_id (FK)  |          | Price          |
-| Category_id (FK)|         | Beds_numbers   |
-+----------------+          +----------------+
+Below is the **relational diagram** represented using Mermaid syntax:
+
+```mermaid
+erDiagram
+    HOTEL ||--o{ TYPE : "has"
+    HOTEL ||--o{ EMPLOYEE : "employs"
+    HOTEL ||--o{ ROOM : "has"
+    ROOM ||--o{ CATEGORY : "belongs to"
+
+    HOTEL {
+        int Hotel_id PK
+        string Hotel_name
+        int Type_id FK
+    }
+
+    TYPE {
+        int Type_id PK
+        string Type_Name
+    }
+
+    EMPLOYEE {
+        int Employee_id PK
+        string Employee_Name
+        string Employee_Specialty
+        int Hotel_id FK
+    }
+
+    ROOM {
+        int Room_id PK
+        int Floor
+        int Hotel_id FK
+        int Category_id FK
+    }
+
+    CATEGORY {
+        int Category_id PK
+        string Category_Name
+        decimal Price
+        int Beds_numbers
+    }
 
 ### Explanation of Relationships
 Hotel - Type (1:1):
